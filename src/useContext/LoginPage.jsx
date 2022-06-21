@@ -3,6 +3,7 @@ import { UserContext } from './context/UserContext';
 
 export const LoginPage = () => {
 
+    // ? desestructuramos el usuario para poder usarlo
     const { user } = useContext(UserContext);
     console.log(user);
 

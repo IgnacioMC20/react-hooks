@@ -3,6 +3,7 @@ import { UserContext } from './context/UserContext';
 
 export const HomePage = () => {
 
+    // ? desestructuramos la función para poder usarla
     const { setUser } = useContext(UserContext);
 
     return (

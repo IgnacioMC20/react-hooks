@@ -11,8 +11,10 @@ export const UserProvider = ( { children } ) => {
 
     const [user, setUser] = useState({});
 
+    // ? creamos un estado para el usuario y lo mandamos al Context para poderlo usar en otros componentes 
 
   return (
+    // ? Componente.Provider para poder usar el contexto
     <UserContext.Provider value={ {user, setUser} }>
         { children }
     </UserContext.Provider>
