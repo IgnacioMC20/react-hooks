@@ -8,10 +8,10 @@ export const HomePage = () => {
 
     return (
         <>
-            <h2>Home</h2>
+            <h2>HomePage</h2>
             <hr />
 
-            <button onClick={() => {
+            <button aria-label='login' onClick={() => {
                 setUser({
                     id: 1,
                     name: 'Ignacio',

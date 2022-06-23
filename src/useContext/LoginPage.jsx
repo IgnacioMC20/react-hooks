@@ -5,13 +5,13 @@ export const LoginPage = () => {
 
     // ? desestructuramos el usuario para poder usarlo
     const { user } = useContext(UserContext);
-    console.log(user);
+    // console.log(user);
 
   return (
     <>
-        <h2>Login</h2>
+        <h2>LoginPage</h2>
         <hr />   
-        <p>{ user?.name }</p>
+        <p aria-label='pre'>{ user?.name }</p>
     </>
   )
 }

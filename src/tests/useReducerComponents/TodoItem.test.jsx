@@ -12,17 +12,17 @@ describe('Pruebas en <TodoItem />', () => {
     const onDeleteTodoMock = jest.fn();
     const onToggleTodoMock = jest.fn();
 
-    // * limpia las funciones que se han llamado y las deja como si fueran nuevas
+    // ? limpia las funciones que se han llamado y las deja como si fueran nuevas
     beforeEach(() => jest.clearAllMocks());
 
-    test('Debe de mostar el todo pendiente de completar', () => { 
+    test('Should show pending todo', () => { 
         render(<TodoItem todo={todo} handleBorrar={onDeleteTodoMock} handleToggleTodo={onToggleTodoMock} />);
         const liElement = screen.getByText(todo.description);
         expect(liElement.className).toBe('');
         // screen.debug();
      });
 
-    test('Debe de mostar el todo completado', () => { 
+    test('Should show completed todo', () => { 
         todo.done = true;
         render(<TodoItem todo={todo} handleBorrar={onDeleteTodoMock} handleToggleTodo={onToggleTodoMock} />);
         const liElement = screen.getByText(todo.description);
@@ -34,12 +34,15 @@ describe('Pruebas en <TodoItem />', () => {
         render(<TodoItem todo={todo} handleBorrar={onDeleteTodoMock} handleToggleTodo={onToggleTodoMock} />);
         const spanElement = screen.getByText(todo.description);
         fireEvent.click(spanElement);
-        // screen.debug();
         expect(onToggleTodoMock).toHaveBeenCalledWith(1);
-     });
-
-    test('Span should call toggle borrar when clicked', () => {
-       
+        // screen.debug();
+    });
+    
+    test('Button should call toggleBorrar() when clicked', () => {
+        render(<TodoItem todo={todo} handleBorrar={onDeleteTodoMock} handleToggleTodo={onToggleTodoMock} />);
+        const buttonElement = screen.getByRole('button');
+        fireEvent.click(buttonElement);
+        expect(onDeleteTodoMock).toHaveBeenCalledWith(1);
      });
 
  })

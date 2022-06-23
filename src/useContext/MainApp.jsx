@@ -15,7 +15,7 @@ export const MainApp = () => {
     return (
         // ? creamos un contexto para el usuario
         <UserProvider>
-            <h1>MainApp</h1>
+            {/* <h1>MainApp</h1> */}
             <NavBar />
             <Routes>
                 <Route path="/" element={<HomePage />} />
